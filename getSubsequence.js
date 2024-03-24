@@ -1,3 +1,5 @@
+const getSubsequenceRecursive = require('./getSubsequenceRecursive');
+
 function getSubsequenceCount(a, b) {
     const m = b.length;
     // Creating a 2D array called 'scoreTable' that will keep track of how many matches and subsequences there are as we work through nested loops comparing the two strings 
@@ -38,7 +40,14 @@ function getSubsequenceCount(a, b) {
     return scoreTable[m][3];
 }
 
-getSubsequenceCount("ABC", "AABCABABC")
+
+const aString = "ABC"
+const bString = "ABCCCC"
+
+const recursiveResult = getSubsequenceRecursive(aString, bString)
+console.log({recursiveResult})
+const iterativeResult = getSubsequenceCount(aString, bString)
+console.log({iterativeResult})
 //  the logic of the solution is the working backward from the last letter of each string -- "C" in this case
 //  if the last letter in string B equals "C" (the last char in String A), then the total number of subsequences will equal ...
 //    the number of subsequences in string B (excluding the last char)
